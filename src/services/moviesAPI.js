@@ -19,7 +19,7 @@ export function getTrending() {
 }
 
 export function searhMovie(searchQuery) {
-	return fetch(`${API_URL}search/movie?query=${searchQuery}api_key=${API_KEY}&language=en-US`)
+	return fetch(`${API_URL}search/movie?query=${searchQuery}&api_key=${API_KEY}&language=en-US`)
 }
 
 export function movieDetails(movieId) {
