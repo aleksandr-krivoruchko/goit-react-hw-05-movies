@@ -1,4 +1,9 @@
 @import-normalize; /* bring in normalize.css styles */
+html {
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
+}
 
 body {
   margin: 0;
@@ -12,4 +17,86 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.wrapper {
+  width: 700px;
+  margin: 0 auto;
+}
+.header {
+  background-color: #000;
+  margin-bottom: 10px;
+}
+.nav {
+  padding: 20px;
+}
+.main {
+  display: flex;
+}
+
+.link {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration-line: none;
+  margin-right: 50px;
+}
+.active {
+  color: rgb(18, 149, 224);
+  text-decoration-line: underline;
+  cursor: default;
+}
+.description {
+  display: flex;
+}
+.img {
+  margin-right: 20px;
+}
+
+.movie-link {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.go-back {
+  display: inline-flex;
+  font-size: 16px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #fff;
+  background-color: rgb(18, 149, 224);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  text-decoration-line: none;
+  cursor: pointer;
+}
+.cast {
+  display: grid;
+  max-width: calc(100vw - 48px);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-gap: 10px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding: 0;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cast li {
+  list-style: none;
 }
