@@ -1,4 +1,4 @@
-import { Link, NavLink, useParams, useMatch, Outlet } from 'react-router-dom';
+import { NavLink, useParams, Outlet, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import * as moviesAPI from '../services/moviesAPI';
@@ -8,8 +8,9 @@ const BASE_URL_IMG = 'https://image.tmdb.org/t/p/w300';
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-  const q = useMatch('');
-  console.log(q);
+  const navigate = useNavigate();
+
+  const goBack = () => navigate(-1);
 
   useEffect(() => {
     moviesAPI.movieDetails(movieId).then(response => setMovie(response.data));
@@ -48,9 +49,9 @@ export default function MovieDetailsPage() {
         </div>
         <hr />
         <Outlet />
-        <Link to="/" className="go-back">
+        <button type="button" className="go-back" onClick={goBack}>
           Go back
-        </Link>
+        </button>
       </div>
     )
   );

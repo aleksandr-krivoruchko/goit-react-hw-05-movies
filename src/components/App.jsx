@@ -4,10 +4,10 @@ import { Routes, Route } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
 import MoviesPage from '../pages/MoviesPage';
 import MovieDetailsPage from '../pages/MovieDetailsPage';
-import Cast from './Cast';
-import Reviews from './Reviews';
-
+import Cast from '../pages/Cast';
+import Reviews from '../pages/Reviews';
 import { NotFoundPage } from '../pages/NotFoundPage';
+
 import { Layout } from './Layout';
 
 // const HomePage = lazy(() => import('../pages/HomePage'));
