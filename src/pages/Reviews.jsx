@@ -1,3 +1,4 @@
+import { GoBack } from 'components/GoBack';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import * as moviesAPI from '../services/moviesAPI';
@@ -11,16 +12,22 @@ export default function Reviews() {
       .movieReviews(movieId)
       .then(response => setReviews(response.data.results));
   }, [movieId]);
-  console.log(reviews);
 
-  return reviews.length !== 0 ? (
-    reviews.map(({ author, content }) => (
+  return (
+    <>
       <div>
-        <h4>{author}</h4>
-        <p>{content}</p>
+        {reviews.length !== 0 ? (
+          reviews.map(({ author, content }) => (
+            <div>
+              <h4>{author}</h4>
+              <p>{content}</p>
+            </div>
+          ))
+        ) : (
+          <p>Sorry. We don't have any reviews for this movie</p>
+        )}
       </div>
-    ))
-  ) : (
-    <p>Sorry. We don't have any reviews for this movie</p>
+      {reviews.length !== 0 && <GoBack href="movies" label="back" />}
+    </>
   );
 }

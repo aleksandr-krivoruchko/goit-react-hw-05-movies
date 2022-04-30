@@ -1,3 +1,4 @@
+import { GoBack } from 'components/GoBack';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import * as moviesAPI from '../services/moviesAPI';
@@ -13,7 +14,7 @@ export default function Cast() {
   }, [movieId]);
 
   return (
-    cast && (
+    <>
       <ul className="cast">
         {cast.map(({ id, original_name, character, profile_path }) => {
           return (
@@ -30,6 +31,7 @@ export default function Cast() {
           );
         })}
       </ul>
-    )
+      {cast.length !== 0 && <GoBack href="movies" label="back" />}
+    </>
   );
 }
