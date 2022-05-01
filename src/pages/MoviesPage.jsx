@@ -2,6 +2,8 @@ import { NavLink, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import * as moviesAPI from '../services/moviesAPI';
 import toast, { Toaster } from 'react-hot-toast';
+import { Loading } from 'components/Loading';
+import { Form } from 'components/Form';
 
 export default function MoviesPage() {
   const [movies, setmovies] = useState([]);
@@ -25,6 +27,8 @@ export default function MoviesPage() {
         setmovies(response.data.results);
       })
       .catch(error => toast.error(error));
+
+    setSearchParams({ query: '' });
   };
 
   function handleChange(e) {
@@ -36,23 +40,12 @@ export default function MoviesPage() {
   return (
     <>
       <Toaster />
-      {!movies && <h3 style={{ textAlign: 'center' }}>Downloading...</h3>}
-
-      <form onSubmit={handleFormSubmit}>
-        <input
-          className="input"
-          value={searchQuery}
-          onChange={handleChange}
-          type="search"
-          name="search"
-          autocomplete="off"
-          autofocus
-          placeholder="find favourite movie"
-        ></input>
-        <button type="submit" className="submit-btn">
-          Search
-        </button>
-      </form>
+      {!movies && <Loading />}
+      <Form
+        onSubmit={handleFormSubmit}
+        onChange={handleChange}
+        searchQuery={searchQuery}
+      />
       <ol className="movies">
         {movies.map(({ id, original_title, release_date }) => (
           <li key={id}>

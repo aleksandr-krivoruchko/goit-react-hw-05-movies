@@ -2,14 +2,16 @@ import { NavLink } from 'react-router-dom';
 
 export function Navigation() {
   return (
-    <nav className="nav wrapper">
-      <NavLink to="/" className="link">
-        Home
-      </NavLink>
+    <header className="header">
+      <nav className="nav wrapper">
+        <NavLink to="/" className="link">
+          Home
+        </NavLink>
 
-      <NavLink to="/movies" className="link">
-        Movies
-      </NavLink>
-    </nav>
+        <NavLink to="/movies" className="link">
+          Movies
+        </NavLink>
+      </nav>
+    </header>
   );
 }
