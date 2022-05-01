@@ -36,6 +36,8 @@ export default function MoviesPage() {
   return (
     <>
       <Toaster />
+          {!movies && <h3>Downloading...</h3>}
+
       <form onSubmit={handleFormSubmit}>
         <input
           className="input"

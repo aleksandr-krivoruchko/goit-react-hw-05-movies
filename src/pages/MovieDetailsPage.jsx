@@ -14,8 +14,9 @@ export default function MovieDetailsPage() {
     moviesAPI.movieDetails(movieId).then(response => setMovie(response.data));
   }, [movieId]);
 
-  return (
-    movie && (
+  return (<>
+    {!movie && <h3 style={{textAlign: "center"}}>Downloading...</h3>}
+    <>{movie && 
       <>
         <GoBack href="/" label="back" />
         <div>
@@ -50,7 +51,8 @@ export default function MovieDetailsPage() {
           <hr />
           <Outlet />
         </div>
-      </>
-    )
+      </>}</>
+</>
+    
   );
 }
